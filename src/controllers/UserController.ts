@@ -13,6 +13,12 @@ class UserController {
 
     return res.json(user)
   }
+
+  public async findById(req: Request, res: Response): Promise<Response>{
+      const messages = await User.find().populate('messages')
+
+      return res.json(messages)
+  }
 }
 
 export default new UserController()

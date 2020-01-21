@@ -4,13 +4,19 @@ interface UserInterface extends Document{
     email?: string,
     firstName?: string,
     lastName?: string,
+    status?: boolean,
     fullName(): string,
 }
 
 const UserSchema = new Schema({
   email: String,
   firstName: String,
-  lastName: String
+  lastName: String,
+  status: Boolean,
+  messages: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Message'
+  }]
 }, {
   timestamps: true
 })
